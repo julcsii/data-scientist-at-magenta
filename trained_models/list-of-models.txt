@@ -1,0 +1,2 @@
+/workspaces/data-scientist-at-magenta/trained_models/model-2025-09-17_14-43-15.pickle
+/workspaces/data-scientist-at-magenta/trained_models/model-2025-09-17_14-44-23.pickle
