@@ -40,19 +40,23 @@ The high level requiremenets for the tool(s) are as follows:
 
 Your task is to:
 
-1. Understand current model release process and think of problems / risks with it. (This video might help: https://www.youtube.com/watch?v=yG0OP-wUbzA)
+1. Understand the current model release process of a simplified data science use case in the `interview` code location and think of potential issues with it. (This video might help: https://www.youtube.com/watch?v=yG0OP-wUbzA)
+
+![Assets in interview code location](interview_code_location.png)
 
 2. Investigate available experiment tracking & model registry tools and select the most suitable one based on the provided requirements above.
 
-3. Implement a prototype of the selected tool(s) and integrate it to the model release process in this repository. Feel free to modify the code that is there, it is simply a starting point for you. 
+3. Implement a prototype of the selected tool(s) and integrate it to the model release process in this repository.  
 
 
 Our suggestions:
 
 - Forking this repo makes it easy for you to work on it. Use feature branches, descriptive commits and pull requests for transparency.
+- Please focus on the following folder: `src/code_location_interview/code_location_interview/assets/magenta_interview` and follow the structure provided.
 - Feel free to chose any open source or commercial experiment tracking & model registry tool of your liking, but you may also implement a custom solution.
 - As for prototype, we would prefer a containerised soltuion that can run locally (on Codespace), but happy to see any creative soltuion that makes sense to you.
 - Aim towards a good enough implementation, we don't expect it to be perfect, after all it is only a prototype.
+- Be ready to explain your code to us and why you implemented it in this way.
 
 
 ### Presentation
