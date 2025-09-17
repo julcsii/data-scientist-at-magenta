@@ -40,7 +40,7 @@ The high level requiremenets for the tool(s) are as follows:
 
 Your task is to:
 
-1. Understand current model release process and think of problems / risks with it.
+1. Understand current model release process and think of problems / risks with it. (This video might help: https://www.youtube.com/watch?v=yG0OP-wUbzA)
 
 2. Investigate available experiment tracking & model registry tools and select the most suitable one based on the provided requirements above.
 
@@ -62,7 +62,7 @@ During the second round of the interview, you will have a chance to present us:
 - which tool(s) you selected and why
 - the improved model release process (ideally with a live demo)
 
-On top of this, be prepared to have a discussion about a hypothetical production rollout of the selected tool(s). Here are some of the questions we might ask:
+On top of this, we will have a discussion about a hypothetical production rollout of the selected tool(s). Here are some of the questions we might ask:
 - How would the architecture look like?
 - What are the infrastructure requirements?
 - What will this cost for the company?
@@ -72,7 +72,7 @@ On top of this, be prepared to have a discussion about a hypothetical production
 Our suggestions:
 
 - Feel free to prepare any material you think might help you in the presentation / discussion. 
-- You will be using a Magenta colleauge's laptop during the interview to avoid technical hiccups. 
+- Be ready to demo your implementation using Codespaces. 
 
 ## Useful Links
 
