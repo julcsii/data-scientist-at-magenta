@@ -42,7 +42,7 @@ Your task is to:
 
 1. Investigate available experiment tracking & model registry tools and select the most suitable one based on the provided requirements above.
 
-2. Implement a prototype of the selected tool(s) and integrate it to the model release process in this repository.
+2. Implement a prototype of the selected tool(s) and integrate it to the model release process in this repository. Feel free to modify the code that is there, it is simply a starting point for you.
 
 Feel free to chose any open source or commercial tool of your liking, but you may also implement a custom solution. For the prototype we would prefer a containerised soltuion that can run locally, but happy to see any creative soltuion that makes sense to you.
 

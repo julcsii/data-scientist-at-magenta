@@ -4,7 +4,7 @@ import sys
 
 import numpy as np
 import pandas as pd
-from dagster import AssetOut, asset, get_dagster_logger, multi_asset
+from dagster import AssetOut, asset, get_dagster_logger, multi_asset, AutomationCondition
 
 log_fmt = "[%(asctime)s] %(message)s"
 log_datefmt = "%Y-%m-%d %H:%M:%S"
@@ -17,9 +17,9 @@ group_name = "get_data"
 @multi_asset(
     group_name=group_name,
     outs={
-        "rating_account_id": AssetOut(),
-        "unique_customer_ids": AssetOut(),
-        "core_data": AssetOut(),
+        "rating_account_id": AssetOut(automation_condition=AutomationCondition.on_cron("0 1 * * 1"),),
+        "unique_customer_ids": AssetOut(automation_condition=AutomationCondition.on_cron("0 1 * * 1"),),
+        "core_data": AssetOut(automation_condition=AutomationCondition.on_cron("0 1 * * 1"),),
     },
 )
 def core_data():
@@ -131,7 +131,7 @@ def core_data():
 
 @asset(
     group_name=group_name,
-    
+    automation_condition=AutomationCondition.eager()
 )
 def usage_info(rating_account_id):
     # Create a DataFrame with all combinations of 'rating_account_id's and dates
@@ -165,6 +165,7 @@ def usage_info(rating_account_id):
 
 @asset(
     group_name=group_name,
+    automation_condition=AutomationCondition.eager()
 )
 def customer_interactions(unique_customer_ids):
     # Randomly select 50% of customer IDs without replacement
