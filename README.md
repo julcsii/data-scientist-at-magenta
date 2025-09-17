@@ -40,29 +40,39 @@ The high level requiremenets for the tool(s) are as follows:
 
 Your task is to:
 
-1. Investigate available experiment tracking & model registry tools and select the most suitable one based on the provided requirements above.
+1. Understand current model release process and think of problems / risks with it.
 
-2. Implement a prototype of the selected tool(s) and integrate it to the model release process in this repository. Feel free to modify the code that is there, it is simply a starting point for you.
+2. Investigate available experiment tracking & model registry tools and select the most suitable one based on the provided requirements above.
 
-Feel free to chose any open source or commercial tool of your liking, but you may also implement a custom solution. For the prototype we would prefer a containerised soltuion that can run locally, but happy to see any creative soltuion that makes sense to you.
+3. Implement a prototype of the selected tool(s) and integrate it to the model release process in this repository. Feel free to modify the code that is there, it is simply a starting point for you. 
 
-Please aim towards a good enough implementation, we don't expect it to be perfect, after all it is only a prototype.
+
+Our suggestions:
+
+- Forking this repo makes it easy for you to work on it. Use feature branches, descriptive commits and pull requests for transparency.
+- Feel free to chose any open source or commercial experiment tracking & model registry tool of your liking, but you may also implement a custom solution.
+- As for prototype, we would prefer a containerised soltuion that can run locally (on Codespace), but happy to see any creative soltuion that makes sense to you.
+- Aim towards a good enough implementation, we don't expect it to be perfect, after all it is only a prototype.
 
 
 ### Presentation
 
 During the second round of the interview, you will have a chance to present us:
+- your findings about the current model release process
 - which tool(s) you selected and why
 - the improved model release process (ideally with a live demo)
 
-Feel free to prepare any material you think might help you in the presentation. You will be using a Magenta colleauge's laptop during the interview.
-
-On top of this, be prepared to have a discussion about a hypothetical production rollout of the selected tool(s). Some of the questions we might ask:
+On top of this, be prepared to have a discussion about a hypothetical production rollout of the selected tool(s). Here are some of the questions we might ask:
 - How would the architecture look like?
 - What are the infrastructure requirements?
 - What will this cost for the company?
 - What IT security and data privacy relevant risks do you forsee?
 - What are the high level tasks for the production rollout? What do you think is a reasonable timeline for the rollout?
+
+Our suggestions:
+
+- Feel free to prepare any material you think might help you in the presentation / discussion. 
+- You will be using a Magenta colleauge's laptop during the interview to avoid technical hiccups. 
 
 ## Useful Links
 
