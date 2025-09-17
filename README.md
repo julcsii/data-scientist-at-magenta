@@ -26,8 +26,34 @@ Steps to get started:
 
 ## Your Assignment
 
-Imagine you are a Machine Learning Engineer at Magenta and your task is to...
+Imagine you are a Machine Learning Engineer at Magenta and the Data Science team has reached out to you to improve the current model release process. They kindly asked you to integrate a **state-of-the-art experiment tracking and model registry solution**.
 
+### Implementation
+
+Your task is to:
+
+1. Investigate experiment tracking & model registry tools out there and select the most suitable one.
+
+2. Implement a prototype of the selected tool and integrate it to the model release process in this repository.
+
+Feel free to chose any open source or commercial tool of your liking, but you may also implement a custom solution. For the prototype we would prefer a containerised soltuion that can run locally, but happy to see any creative soltuion that makes sense to you.
+
+Please aim towards a good enough implementation, we don't expect it to be perfect, after all it is only a prototype.
+
+### Presentation
+
+During the second round of the interview, you will have a chance to present us:
+- which tool(s) you selected and why
+- demo of a working prototype
+
+On top of this, be prepared to be asked about a hypothetical production rollout of the selected tool(s) in production. We are curious to know:
+- How the architecture would look like?
+- What are the infrastructure requirements?
+- What will this cost for the company?
+- What IT security and data privacy relevant risks do you forsee?
+- What are the high level tasks for the production rollout? What do you think is a reasonable timeline for the rollout?
+
+Feel free to prepare any material and presentation format you like, but if you are con. You will be using a Magenta colleauge's laptop during the interview.
 
 ## Useful Links
 
