@@ -69,3 +69,4 @@ On top of this, be prepared to have a discussion about a hypothetical production
 - Pixi: https://pixi.sh/latest/advanced/installation/
 - Dagster: https://dagster.io/  
   Further learning: https://courses.dagster.io/
+  Example of ML model release with Dagster: https://www.youtube.com/watch?v=yG0OP-wUbzA
