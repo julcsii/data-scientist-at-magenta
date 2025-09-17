@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 import pandas as pd
 
-from dagster import get_dagster_logger
+from dagster import get_dagster_logger, asset, AutomationCondition
 
 
 log_fmt = "[%(asctime)s] %(message)s"
@@ -16,18 +16,15 @@ group_name = "predict"
 
 @asset(
     group_name=group_name,
-    automation_condition=dg.AutomationCondition.eager()
+    automation_condition=AutomationCondition.eager()
 )
-def predictions(df_input, deployed_model):
-    y_pred = deployed_model.predict(cleaned_readings[feature_cols])
-    df_input = df_input.set_index("rating_account_id")
-    y_pred = live_model.predict_proba(df_input)[:, 1]
+def predictions(features, deployed_model):
+    features = features.set_index("rating_account_id")
+    y_pred = deployed_model.predict_proba(features)[:, 1]
 
     predictions_df = pd.DataFrame()
-    predictions_df["rating_account_id"] = df_input.index
+    predictions_df["rating_account_id"] = features.index
     predictions_df["churn_risk"] = y_pred
     predictions_df["run_dt"] = datetime.now()
-
-    return predictions_df
 
     return predictions_df

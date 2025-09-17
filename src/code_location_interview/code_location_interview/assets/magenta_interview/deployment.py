@@ -1,28 +1,34 @@
 """
-Source: https://github.com/neurospaceio/dagster-deepdive-mlops-demo/blob/main/mlops_demo/mlops_demo/deployment.py
+Based on:
+https://github.com/neurospaceio/dagster-deepdive-mlops-demo/blob/main/mlops_demo/mlops_demo/deployment.py
 """
 
 import polars as pl
-import dagster as dg
+from dagster import asset, file_relative_path, AssetExecutionContext, Config, Failure,AutomationCondition
 from sklearn.ensemble import RandomForestClassifier
 import pickle
 from datetime import datetime
 
 group_name = "deployment"
 
-@dg.asset(
+@asset(
     group_name=group_name,
-    automation_condition=dg.AutomationCondition.eager()
+    automation_condition=AutomationCondition.eager()
 )
-def model_candidates(context: dg.AssetExecutionContext, trained_model) -> list[str]:
+def model_candidates(context: AssetExecutionContext, trained_model) -> list[str]:
+    root =  file_relative_path(__file__, "../../../../../")
+    trained_models_folder = f"{root}/trained_models"
+    model_list_file_name = f"{trained_models_folder}/list-of-models.txt"
+    model_path = f"{trained_models_folder}/model-{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.pickle"
+    
+    # Save model file
+    pickle.dump(trained_model, open(model_path, "wb+"))
 
-    model_name = f"trained-models/model-{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.pickle"
-    pickle.dump(trained_model, open(model_name, "wb+"))
+    # Update model candidates
+    with open(model_list_file_name, "a+") as f:
+        f.write(model_path + "\n")
 
-    with open("trained-models/list-of-models.txt", "a+") as f:
-        f.write(model_name + "\n")
-
-    with open("trained-models/list-of-models.txt", "r") as f:
+    with open(model_list_file_name, "r") as f:
         models = f.read().splitlines()
 
     context.add_asset_metadata({
@@ -31,18 +37,18 @@ def model_candidates(context: dg.AssetExecutionContext, trained_model) -> list[s
 
     return models
 
-class DeployedModelConfiguration(dg.Config):
-    model_name: str
+class DeployedModelConfiguration(Config):
+    model_path: str
 
-@dg.asset(
+@asset(
     group_name=group_name
 )
-def deployed_model(production_model_candidates: list[str], config: DeployedModelConfiguration) -> RandomForestClassifier:
+def deployed_model(model_candidates: list[str], config: DeployedModelConfiguration):
 
-    if config.model_name not in production_model_candidates:
-        raise dg.Failure("The requested model does not exist")
+    if config.model_path not in model_candidates:
+        raise Failure("The requested model does not exist")
     
-    with open(config.model_name, "rb") as f:
-        model: RandomForestClassifier = pickle.load(f)
+    with open(config.model_path, "rb") as f:
+        model = pickle.load(f)
 
     return model

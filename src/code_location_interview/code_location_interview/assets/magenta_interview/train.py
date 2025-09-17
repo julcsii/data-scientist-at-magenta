@@ -1,7 +1,7 @@
 import logging
 import sys
 
-from dagster import get_dagster_logger, AutomationCondition, AssetOut, Output
+from dagster import get_dagster_logger, AutomationCondition, AssetOut, Output, asset, multi_asset
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
@@ -19,26 +19,22 @@ logger = get_dagster_logger(__name__)
 group_name = "training"
 
 
-
 @asset(
     group_name=group_name,
     automation_condition=AutomationCondition.on_cron("0 1 8-14,22-28 * 1")
 )
 def df_input(features, label):
-    X = features.merge(label, on="rating_account_id")
-
-    return X
+    inputs = features.merge(label, on="rating_account_id")
+    return inputs
 
 
 @multi_asset(
     group_name=group_name,
     outs={
         "train_data": AssetOut(
-            io_manager_key="bigquery_io_manager",
             automation_condition=AutomationCondition.eager(),
         ),
         "test_data": AssetOut(
-            io_manager_key="bigquery_io_manager",
             automation_condition=AutomationCondition.eager(),
         ),
     }
@@ -48,7 +44,7 @@ def split_train_test(df_input):
     return train_data, test_data
 
 
-@asset(group_name=group_name)
+@asset(group_name=group_name, automation_condition=AutomationCondition.eager())
 def trained_model(train_data, test_data):
     # Dynamically select columns to impute
     columns_to_impute = [col for col in train_data.columns if col.startswith("n_case") or col.startswith("days_since_last_case")]
@@ -89,12 +85,12 @@ def trained_model(train_data, test_data):
     test_data = test_data.set_index("rating_account_id")
 
     # Train model
-    trained_model = estimator.fit(train_data, y_train)
+    trained_model = pipeline.fit(train_data, y_train)
 
     # Predicted labels
-    y_pred = tuned_pipeline.predict(test_data)
+    y_pred = trained_model.predict(test_data)
     # Predicted probabilities
-    y_prob = tuned_pipeline.predict_proba(test_data)[:, 1]
+    y_prob = trained_model.predict_proba(test_data)[:, 1]
     # Metrics calculation
     metrics = {
         "precision_score": float(precision_score(y_test, y_pred)),
