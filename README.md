@@ -54,7 +54,7 @@ Our suggestions:
 - Forking this repo makes it easy for you to work on it. Use feature branches, descriptive commits and pull requests for transparency.
 - Please focus on the following folder: `src/code_location_interview/code_location_interview/assets/magenta_interview` and follow the structure provided.
 - Feel free to chose any open source or commercial experiment tracking & model registry tool of your liking, but you may also implement a custom solution.
-- As for prototype, we would prefer a containerised soltuion that can run locally (on Codespace), but happy to see any creative soltuion that makes sense to you.
+- As for prototype, we would like to see a solution that can run locally (on Codespaces). We like to work with containerised applications, but happy to see any creative soltuion that makes sense to you.
 - Aim towards a good enough implementation, we don't expect it to be perfect, after all it is only a prototype.
 - Be ready to explain your code to us and why you implemented it in this way.
 
@@ -66,7 +66,8 @@ During the second round of the interview, you will have a chance to present us:
 - which tool(s) you selected and why
 - the improved model release process (ideally with a live demo)
 
-On top of this, we will have a discussion about a hypothetical production rollout of the selected tool(s). Here are some of the questions we might ask:
+On top of this, we will have a discussion about a hypothetical production rollout of the selected tool(s). 
+Here are some of the questions we might ask:
 - How would the architecture look like?
 - What are the infrastructure requirements?
 - What will this cost for the company?
