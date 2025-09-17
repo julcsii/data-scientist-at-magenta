@@ -42,7 +42,7 @@ Your task is to:
 
 1. Understand the current model release process of a simplified data science use case in the `interview` code location and think of potential issues with it. (This video might help: https://www.youtube.com/watch?v=yG0OP-wUbzA)
 
-![Assets in interview code location](interview_code_location.png)
+![Assets in interview code location](interview_code_location.svg)
 
 2. Investigate available experiment tracking & model registry tools and select the most suitable one based on the provided requirements above.
 
