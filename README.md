@@ -28,36 +28,44 @@ Steps to get started:
 
 Imagine you are a Machine Learning Engineer at Magenta and the Data Science team has reached out to you to improve the current model release process. They kindly asked you to integrate a **state-of-the-art experiment tracking and model registry solution**.
 
+The high level requiremenets for the tool(s) are as follows:
+- Can be deployed in GCP
+- Different model training results can be compared
+- Model release process is transparent and automated, but has human in the loop step
+- Model files are stored in a secure way
+- Costs are minimised
+
+
 ### Implementation
 
 Your task is to:
 
-1. Investigate experiment tracking & model registry tools out there and select the most suitable one.
+1. Investigate available experiment tracking & model registry tools and select the most suitable one based on the provided requirements above.
 
-2. Implement a prototype of the selected tool and integrate it to the model release process in this repository.
+2. Implement a prototype of the selected tool(s) and integrate it to the model release process in this repository.
 
 Feel free to chose any open source or commercial tool of your liking, but you may also implement a custom solution. For the prototype we would prefer a containerised soltuion that can run locally, but happy to see any creative soltuion that makes sense to you.
 
 Please aim towards a good enough implementation, we don't expect it to be perfect, after all it is only a prototype.
 
+
 ### Presentation
 
 During the second round of the interview, you will have a chance to present us:
 - which tool(s) you selected and why
-- demo of a working prototype
+- the improved model release process (ideally with a live demo)
 
-On top of this, be prepared to be asked about a hypothetical production rollout of the selected tool(s) in production. We are curious to know:
-- How the architecture would look like?
+Feel free to prepare any material you think might help you in the presentation. You will be using a Magenta colleauge's laptop during the interview.
+
+On top of this, be prepared to have a discussion about a hypothetical production rollout of the selected tool(s). Some of the questions we might ask:
+- How would the architecture look like?
 - What are the infrastructure requirements?
 - What will this cost for the company?
 - What IT security and data privacy relevant risks do you forsee?
 - What are the high level tasks for the production rollout? What do you think is a reasonable timeline for the rollout?
-
-Feel free to prepare any material and presentation format you like, but if you are con. You will be using a Magenta colleauge's laptop during the interview.
 
 ## Useful Links
 
 - Pixi: https://pixi.sh/latest/advanced/installation/
 - Dagster: https://dagster.io/  
   Further learning: https://courses.dagster.io/
-- dbt: https://www.getdbt.com/
