@@ -52,3 +52,4 @@ def deployed_model(model_candidates: list[str], config: DeployedModelConfigurati
         model = pickle.load(f)
 
     return model
+    
