@@ -5,7 +5,7 @@ This step is designed to help us get to know each other better. You'll get the c
 
 ---
 
-## Quick Start to to Codespace
+## Quick Start to to Codespaces
 
 This repository contains example pipelines and data for your interview assignment.
 
